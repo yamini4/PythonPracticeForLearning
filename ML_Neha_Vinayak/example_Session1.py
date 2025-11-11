@@ -12,6 +12,7 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 
 dataset = pd.read_csv('zoo.csv')
+# dataset = pd.read_csv('#zoo.csv')
 
 # check the size of the dataset
 dataset.shape
@@ -51,7 +52,7 @@ class_names = ['Mammal', 'Fish', 'Bird', 'Invertebrate', 'Bug', 'Amphibian', 'Re
 
 dictionary = dict(zip(class_names, class_int))
 
-os.environ["PATH"] += os.pathsep + 'C:\\Program Files\\Graphviz-14.0.2-win64\\lib\\graphviz' # Windows OS
+os.environ["PATH"] += os.pathsep + 'C:/Program Files/Graphviz-14.0.2-win64/bin'
 
 # may need to install
 # pip install pydotplus
@@ -68,3 +69,6 @@ export_graphviz(model, out_file=dot_data,
 graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
 
 Image(graph.create_png())
+
+graph.write_png("output_tree.png")
+print("✅ Image saved as output_tree.png")
